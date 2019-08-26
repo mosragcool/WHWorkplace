@@ -24,6 +24,8 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
+ console.log('Post OK');
+
   let body = req.body;
 
   // Checks this is an event from a page subscription
