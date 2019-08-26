@@ -42,6 +42,8 @@ app.post('/webhook', (req, res) => {
      console.log(entry.id);
      if(entry.id === '100036992748686')
      {
+res.send('Testt');
+
       console.log(entry.changes);
       console.log(entry.changes[0]);
      
@@ -69,7 +71,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   console.log('1');
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "123456789"
+  let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt"
 
   // Parse the query params
   let mode = req.query['hub.mode'];
