@@ -62,7 +62,7 @@ res.send('Testt');
   } else {
     //console.log(body.object);
     // Returns a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
+    res.sendStatus(404).send('Error');
   }
 
 });
