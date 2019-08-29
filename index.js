@@ -115,7 +115,7 @@ app.get('/webhook', (req, res) => {
       const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
       console.log(PAGE_ACCESS_TOKEN);
       console.log('WEBHOOK_VERIFIED');
-      res.status(200).send(challenge);
+      res.status(200).send(PAGE_ACCESS_TOKEN);
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
