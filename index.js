@@ -20,11 +20,11 @@ app.post('/webhook', (req, res) => {
     body.entry.forEach(function(entry) {
 
       let webhook_event = entry.messaging[0];
-        // console.log(entry);
+         console.log(entry);
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
-     //   console.log(webhook_event);
-        handleMessage(sender_psid, webhook_event.message);        
+       console.log(webhook_event);
+       // handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
@@ -104,7 +104,7 @@ app.get('/webhook', (req, res) => {
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
   let challenge = req.query['hub.challenge'];
-    console.log(token);
+
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
   
