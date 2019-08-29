@@ -81,7 +81,7 @@ function callSendAPI(sender_psid, response) {
 
   console.log(request_body);
 
-  request({
+  require('http').request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
     "qs": { "access_token": "DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn" },
     "method": "POST",
@@ -96,7 +96,7 @@ function callSendAPI(sender_psid, response) {
 }
 
 app.get('/webhook', (req, res) => {
-  console.log('1');
+ 
   // Your verify token. Should be a random string.
   let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt"
     
@@ -112,7 +112,6 @@ app.get('/webhook', (req, res) => {
     if (mode === 'subscribe' && token === VERIFY_TOKEN) {
       
       // Responds with the challenge token from the request
-      const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
       //console.log(PAGE_ACCESS_TOKEN);
       //console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
