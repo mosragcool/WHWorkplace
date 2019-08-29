@@ -85,13 +85,12 @@ function callSendAPI(sender_psid, response) {
   
 
 var options = {
-  host: "graph.facebook.com",
-  path: "/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn",
+  host: "graph.facebook.com/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn", 
   method: "POST",
   body:  request_body,
   headers: {
-    "Content-Type": "application/json"//,
-   // 'Content-Length': Buffer.byteLength(request_body)
+    "Content-Type": "application/json",
+    "Content_Lenght": Buffer.byteLength(request_body)
   }
 }
 
@@ -105,11 +104,10 @@ https.request(options, function(res) {
   // console.log('STATUS: ' + res.statusCode);
   // console.log('HEADERS: ' + JSON.stringify(res.headers));
   res.setEncoding('utf8');
-
   res.on('data', function (chunk) {
     console.log('BODY: ' + chunk);
   });
-}).write(request_body).end();
+}).end();
   
 /*
   request({
