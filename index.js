@@ -24,7 +24,8 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
- console.log('Post OK 2');
+try{
+  console.log('Post OK 2');
 
   let body = req.body;
 
@@ -65,6 +66,12 @@ res.send('Testt');
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404).send('Error');
   }
+}catch(express)
+{
+  
+}
+
+ 
 
 });
 
