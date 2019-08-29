@@ -63,6 +63,16 @@ function handleMessage(sender_psid, received_message) {
   callSendAPI(sender_psid, response);    
 }
 
+function callSendAPI(sender_psid, response) {
+  // Construct the message body
+  let request_body = {
+    "recipient": {
+      "id": sender_psid
+    },
+    "message": response
+  }
+}
+
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
