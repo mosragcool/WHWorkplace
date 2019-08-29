@@ -83,7 +83,8 @@ function callSendAPI(sender_psid, response) {
   console.log(request_body);
 
   var headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    'Content-Length': request_body.length
   };
 
 var options = {
