@@ -40,12 +40,17 @@ app.post('/webhook', (req, res) => {
      //console.log(webhook_event);
     
      //res.send('ส่งข้อความกลับ'); 
+     console.log(body.object);
      console.log('********');
+     
+     console.log(entry);
+     console.log('********');
+     console.log(entry.messaging[0]);
      let webhook_event = entry.messaging[0];
-     console.log(webhook_event[0]);
-        console.log(webhook_event[0]['message']['text']);
-     console.log(webhook_event[0]['id']);
-     console.log(webhook_event[0]['thread']); 
+   //  console.log(webhook_event[0]);
+  //      console.log(webhook_event[0]['message']['text']);
+  //   console.log(webhook_event[0]['id']);
+  //   console.log(webhook_event[0]['thread']); 
     
     
 
