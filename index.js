@@ -46,10 +46,6 @@ try {
      //res.send('ส่งข้อความกลับ'); 
      console.log(body.object);
      console.log('********'); 
-     
-     console.log(entry);
-     console.log('********');
-     console.log(entry.messaging[0]);
      let webhook_event = entry.messaging[0];
      console.log(webhook_event[0]);
     // console.log(webhook_event[0]['sender']['id']);
