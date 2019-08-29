@@ -48,7 +48,7 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   // Checks if the message contains text
-
+  
   if (received_message.text) {
   
     // Creates the payload for a basic text message, which
@@ -77,10 +77,12 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
+
+  const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
  
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt" },
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
     "method": "POST",
     "json": request_body
   }, (err, res, body) => {
