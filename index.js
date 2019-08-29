@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
-
+ console.log('Start');
 
   let body = req.body;
 
