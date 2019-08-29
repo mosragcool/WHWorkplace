@@ -24,7 +24,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
        console.log(webhook_event);
-       // handleMessage(sender_psid, webhook_event.message);        
+        handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
@@ -82,7 +82,7 @@ function callSendAPI(sender_psid, response) {
   const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
  console.log("Token Key : "+PAGE_ACCESS_TOKEN);
   request({
-    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "uri": "https://graph.facebook.com/v4.0/me/messages",
     "qs": { "access_token": 'EAALNyShJXH8BAOo5o88mnzJu43t8TqeBl42qGNOna3Gx1RBhPUGvBcFB6tY6RXYNH7Df68Aj6IK3KMtRw9bBiHkeD5h6X7kAAlAxgFb5fiHbp3Udhx2sY7FET8xfIbz5tiLsFynlhDGz0W30Fz4FQFcuL1KZClwZAZA3U0l4gZDZD' },
     "method": "POST",
     "json": request_body
