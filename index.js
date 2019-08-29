@@ -48,9 +48,9 @@ function handleMessage(sender_psid, received_message) {
   let response;
 
   // Checks if the message contains text
-  console.log('1');
+
   if (received_message.text) {
-    console.log('2');
+  
     // Creates the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
@@ -63,24 +63,24 @@ function handleMessage(sender_psid, received_message) {
     let attachment_url = received_message.attachments[0].payload.url;
   
   } 
-  console.log('3');
+
   // Sends the response message
   callSendAPI(sender_psid, response);    
 }
 
 function callSendAPI(sender_psid, response) {
   // Construct the message body
-  console.log('4');
+ 
   let request_body = {
     "recipient": {
       "id": sender_psid
     },
     "message": response
   }
-  console.log('5');
+ 
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
-    "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+    "qs": { "access_token": "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt" },
     "method": "POST",
     "json": request_body
   }, (err, res, body) => {
