@@ -55,7 +55,7 @@ function handleMessage(sender_psid, received_message) {
     // Creates the payload for a basic text message, which
     // will be added to the body of our request to the Send API
     response = {
-      "text": `You sent the message: "${received_message.text}". Now send me an attachment!`
+      "text": `Bot ตอบ "${received_message.text}"`
     }
 
   } else if (received_message.attachments) {
@@ -82,8 +82,7 @@ function callSendAPI(sender_psid, response) {
   console.log(request_body);
 
   request({
-    "uri": "https://graph.facebook.com/v4.0/me/messages",
-    "qs": { "access_token": 'DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn' },
+    "uri": "https://graph.facebook.com/v2.6/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn",
     "method": "POST",
     "json": request_body
   }, (err, res, body) => {
