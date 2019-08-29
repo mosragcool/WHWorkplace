@@ -44,7 +44,7 @@ app.post('/webhook', (req, res) => {
     
      //res.send('ส่งข้อความกลับ'); 
      console.log(body.object);
-     console.log('********');
+     console.log('********'); 
      
      console.log(entry);
      console.log('********');
