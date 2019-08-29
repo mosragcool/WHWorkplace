@@ -98,12 +98,14 @@ var options = {
 var https = require('https');
 
 
-https.request(options, function(res) {
+var req = https.request(options, function(res) {
   res.setEncoding('utf8');
   res.on('data', function (chunk) {
     console.log('BODY: ' + chunk);
   });
-}).write(request_body).end();
+})
+req.write(request_body);
+req.end();
   
 /*
   request({
