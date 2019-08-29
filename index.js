@@ -94,9 +94,9 @@ var options = {
   body:  request_body
 }
 
-var http = require('http');
+var https = require('https');
 
-http.request(options, function(res) {
+https.request(options, function(res) {
   console.log('STATUS: ' + res.statusCode);
   console.log('HEADERS: ' + JSON.stringify(res.headers));
   res.setEncoding('utf8');
