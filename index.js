@@ -41,6 +41,8 @@ app.post('/webhook', (req, res) => {
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
+     let webhook_event = entry.messaging[0];
+     console.log(webhook_event[0]);
         console.log(webhook_event[0]['message']['text']);
      console.log(webhook_event[0]['id']);
      console.log(webhook_event[0]['thread']); 
