@@ -53,7 +53,7 @@ try {
      let webhook_event = entry.messaging[0];
      console.log(webhook_event[0]);
     // console.log(webhook_event[0]['sender']['id']);
-        console.log(webhook_event[0]['message']['text']);
+        console.log(webhook_event[0]['message']);
   
   //   console.log(webhook_event[0]['thread']); 
     
