@@ -96,7 +96,7 @@ function callSendAPI(sender_psid, response) {
 }
 
 app.get('/webhook', (req, res) => {
-
+  console.log('1');
   // Your verify token. Should be a random string.
   let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt"
     
