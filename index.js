@@ -1,21 +1,9 @@
-var express = require('express')
-var bodyParser = require('body-parser');
-var sendMessage = require('sendmessage');
+express = require('express'),
+bodyParser = require('body-parser'),
+app = express().use(bodyParser.json()); // creates express http server
 
-//var http = require('http');
-//var https = require('https');
-
-
-var app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");//res.header('Access-Control-Allow-Origin', 'http://localhost:8888'); //or restrict domainะ
-    res.header("Access-Control-Allow-Headers", "cache-control, content-type, departmentuid, hasanonymouspermission, if-modified-since, incus-token, patientorderuid, useruid, patientorderitemuid");
-    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-    next();
-});
+// Sets server port and logs message on success
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 
 // Creates the endpoint for our webhook
