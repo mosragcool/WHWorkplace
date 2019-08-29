@@ -24,7 +24,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
      //   console.log(webhook_event);
-      //  handleMessage(sender_psid, webhook_event.message);        
+        handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
@@ -104,7 +104,7 @@ app.get('/webhook', (req, res) => {
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
   let challenge = req.query['hub.challenge'];
-    
+    console.log(token);
   // Checks if a token and mode is in the query string of the request
   if (mode && token) {
   
@@ -113,9 +113,9 @@ app.get('/webhook', (req, res) => {
       
       // Responds with the challenge token from the request
       const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-      console.log(PAGE_ACCESS_TOKEN);
-      console.log('WEBHOOK_VERIFIED');
-      res.status(200).send(PAGE_ACCESS_TOKEN);
+      //console.log(PAGE_ACCESS_TOKEN);
+      //console.log('WEBHOOK_VERIFIED');
+      res.status(200).send(challenge);
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
