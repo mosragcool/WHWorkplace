@@ -23,7 +23,12 @@ app.post('/webhook', (req, res) => {
       console.log(webhook_event);
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
+        console.log('1');
         handleMessage(sender_psid, webhook_event.message);        
+      }
+      else
+      {
+        console.log('2');
       }
 
      // console.log(webhook_event['message']['text']);
