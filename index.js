@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {
      console.log(entry.messaging[0]);
      let webhook_event = entry.messaging[0];
      console.log(webhook_event[0]);
-     console.log(webhook_event[0]['sender']['id']);
+    // console.log(webhook_event[0]['sender']['id']);
         console.log(webhook_event[0]['message']['text']);
   
   //   console.log(webhook_event[0]['thread']); 
