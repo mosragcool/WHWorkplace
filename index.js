@@ -84,31 +84,9 @@ function callSendAPI(sender_psid, response) {
   
 
   console.log(request_body);
-  let urlAPI = "https://graph.facebook.com/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn"
-  request.post({
-    url: urlAPI,
-    json: true,
-    body: request_body,
-    headers: {'Content-Type': 'application/json'}
-  }, (err, res, data) => {
-    if (err) {
-      console.log('Error:', err);
-    } else if (res.statusCode !== 200) {
-      console.log('Status:', res.statusCode);
-    } else {
-      // data is already parsed as JSON:
-      console.log(data.html_url);
-    }
+  
 
-  res.on('end', function(){
-      var fbResponse = JSON.parse(body);
-      console.log("Got a response: ", fbResponse.picture);
-  });
-}).on('error', function(e){
-    console.log("Got an error: ", e);
-});
-
-  /*request({
+  http.request({
     "uri": "https://graph.facebook.com/v4.0/me/messages",
     "qs": { "access_token": "DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn" },
    "method": "POST",
@@ -119,7 +97,7 @@ function callSendAPI(sender_psid, response) {
     } else {
       console.error("Unable to send message:" + err);
     }
-  });  */
+  }); 
 }
 
 app.get('/webhook', (req, res) => {
