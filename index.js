@@ -41,9 +41,9 @@ app.post('/webhook', (req, res) => {
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
-       // console.log(webhook_event[0]['message']['text']);
-     //console.log(webhook_event[0]['id']);
-    // console.log(webhook_event[0]['thread']); 
+        console.log(webhook_event[0]['message']['text']);
+     console.log(webhook_event[0]['id']);
+     console.log(webhook_event[0]['thread']); 
     
     
 
@@ -55,7 +55,7 @@ app.post('/webhook', (req, res) => {
    // res.status(200).send('EVENT_RECEIVED');
    res.status(200).send('EVENT_RECEIVED');
   } else {
-    //console.log(body.object);
+    console.log(body.object);
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404).send('Error');
   }
