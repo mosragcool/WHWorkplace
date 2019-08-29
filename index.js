@@ -79,8 +79,8 @@ function callSendAPI(sender_psid, response) {
     "message": response
   }
 
-  const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
- console.log("Token Key : "+PAGE_ACCESS_TOKEN);
+  console.log(request_body);
+
   request({
     "uri": "https://graph.facebook.com/v4.0/me/messages",
     "qs": { "access_token": 'EAALNyShJXH8BAOo5o88mnzJu43t8TqeBl42qGNOna3Gx1RBhPUGvBcFB6tY6RXYNH7Df68Aj6IK3KMtRw9bBiHkeD5h6X7kAAlAxgFb5fiHbp3Udhx2sY7FET8xfIbz5tiLsFynlhDGz0W30Fz4FQFcuL1KZClwZAZA3U0l4gZDZD' },
