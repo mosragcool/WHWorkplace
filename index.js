@@ -14,18 +14,20 @@ app.post('/webhook', (req, res) => {
  
   let body = req.body;
 
-  // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
-    // Iterates over each entry - there may be multiple if batched
+
     body.entry.forEach(function(entry) {
 
-      // Gets the message. entry.messaging is an array, but 
-      // will only ever contain one message, so we get index 0
       let webhook_event = entry.messaging[0];
       console.log(webhook_event);
-      console.log(webhook_event['message']['text']);
-     console.log(webhook_event['id']);
+      let sender_psid = webhook_event.sender.id;
+      if (webhook_event.message) {
+        handleMessage(sender_psid, webhook_event.message.text);        
+      }
+
+     // console.log(webhook_event['message']['text']);
+    // console.log(webhook_event['sender']['id']);
     });
 
     // Returns a '200 OK' response to all requests
