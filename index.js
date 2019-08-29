@@ -27,7 +27,7 @@ app.post('/webhook', (req, res) => {
 try{
 
 
-  let body = req.body;
+ // let body = req.body;
   console.log(body.object);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
@@ -42,6 +42,8 @@ try{
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
+     
+     console.log(entry);
      let webhook_event = entry.messaging[0];
      console.log(webhook_event[0]);
      console.log(webhook_event[0]['message']);
