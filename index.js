@@ -24,7 +24,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
      //   console.log(webhook_event);
-        handleMessage(sender_psid, webhook_event.message);        
+      //  handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
