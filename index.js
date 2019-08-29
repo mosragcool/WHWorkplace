@@ -24,11 +24,9 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
-try{
+ try{
+  let body = req.body;
 
-
- // let body = req.body;
-  
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
@@ -37,22 +35,17 @@ try{
 
       // Gets the message. entry.messaging is an array, but
       // will only ever contain one message, so we get index 0
-    //  
+    //  let webhook_event = entry.messaging[0];
      //console.log(webhook_event);
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
-     
      console.log(entry);
-     let webhook_event = entry.messaging[0];
-     console.log(webhook_event[0]);
-     console.log(webhook_event[0]['message']);
-   //  console.log(entry.id);
-     
-     //res.send('Testt');
+  
+res.send('Testt');
 
-      //console.log(entry.changes);
-      //console.log(entry.changes[0]);
+    //  console.log(entry.changes);
+   //   console.log(entry.changes[0]);
      
      
     
@@ -67,17 +60,18 @@ try{
    // res.status(200).send('EVENT_RECEIVED');
    res.status(200).send('EVENT_RECEIVED');
   } else {
-   
+    //console.log(body.object);
     // Returns a '404 Not Found' if event is not from a page subscription
-   // res.sendStatus(404).send('Error');
+    res.sendStatus(404).send('Error');
   }
-}catch(express)
-{
-  
-}
+
+
+ }catch(express)
+ {
+
+ }
 
  
-
 });
 
 // Adds support for GET requests to our webhook
