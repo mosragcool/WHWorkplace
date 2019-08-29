@@ -71,7 +71,7 @@ function handleMessage(sender_psid, received_message) {
 function callSendAPI(sender_psid, response) {
   // Construct the message body
  
-  let request_body = JSON.stringify({
+  var request_body = JSON.stringify({
     "messaging_type":"RESPONSE",
     "recipient": {
       "id": sender_psid
@@ -82,23 +82,25 @@ function callSendAPI(sender_psid, response) {
   });
   console.log(request_body);
 
-  let header = {
-    "Content-Type": "application/json"
-  };
+  
 
 var options = {
   host: "graph.facebook.com",
   path: "/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn",
   method: "POST",
   body:  request_body,
-  headers: header
+  headers: {
+    "Content-Type": "application/json"
+  }
 }
 
 var https = require('https');
 
 
 https.request(options, function(res) {
+  console.log('=============')
   console.log(res);
+  console.log('=============')
   // console.log('STATUS: ' + res.statusCode);
   // console.log('HEADERS: ' + JSON.stringify(res.headers));
   res.setEncoding('utf8');
