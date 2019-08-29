@@ -25,13 +25,13 @@ app.use(function (req, res, next) {
 app.post('/webhook', (req, res) => {
 
  console.log('Start');
-
+ console.log(Date.now);
   let body = req.body;
 
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
     console.log('Start');
-    console.log(Date.now);
+ 
  
 
     // Iterates over each entry - there may be multiple if batched
