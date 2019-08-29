@@ -23,14 +23,15 @@ app.use(function (req, res, next) {
 
 
 app.post('/webhook', (req, res) => {
+  console.log(Date.now);
+  console.log('Start');
+try {
 
- console.log('Start');
- console.log(Date.now);
   let body = req.body;
 
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-    console.log('Start');
+ 
  
  
 
@@ -70,6 +71,15 @@ app.post('/webhook', (req, res) => {
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404).send('Error');
   }
+
+}
+catch(express)
+{
+ 
+}
+
+
+ 
 
 });
 
