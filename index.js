@@ -28,7 +28,7 @@ try{
 
 
  // let body = req.body;
-  console.log(body.object);
+ // console.log(body.object);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
