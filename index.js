@@ -90,8 +90,8 @@ var options = {
   method: "POST",
   body:  request_body,
   headers: {
-    "Content-Type": "application/json",
-    'Content-Length': Buffer.byteLength(request_body)
+    "Content-Type": "application/json"//,
+   // 'Content-Length': Buffer.byteLength(request_body)
   }
 }
 
