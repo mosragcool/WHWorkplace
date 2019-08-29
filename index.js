@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 app.post('/webhook', (req, res) => {
 
 try{
-  console.log('Post OK 2');
+
 
   let body = req.body;
 
@@ -44,7 +44,7 @@ try{
      console.log('********');
    //  console.log(entry.id);
      
-res.send('Testt');
+     //res.send('Testt');
 
       //console.log(entry.changes);
       //console.log(entry.changes[0]);
@@ -62,9 +62,9 @@ res.send('Testt');
    // res.status(200).send('EVENT_RECEIVED');
    res.status(200).send('EVENT_RECEIVED');
   } else {
-    //console.log(body.object);
+    console.log(body.object);
     // Returns a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404).send('Error');
+   // res.sendStatus(404).send('Error');
   }
 }catch(express)
 {
