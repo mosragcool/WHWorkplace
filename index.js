@@ -83,8 +83,7 @@ function callSendAPI(sender_psid, response) {
   console.log(request_body);
 
   var headers = {
-    "Content-Type": "application/json",
-    'Content-Length': request_body.length
+    "Content-Type": "application/json"
   };
 
 var options = {
@@ -92,7 +91,7 @@ var options = {
   path: "/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn",
   method: "POST",
   headers : headers,
-  body:  request_body
+  json:  request_body
 }
 
 var https = require('https');
