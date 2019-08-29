@@ -82,7 +82,7 @@ function callSendAPI(sender_psid, response) {
   });
   console.log(request_body);
 
-  var header = {
+  let header = {
     "Content-Type": "application/json"
   };
 
