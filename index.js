@@ -71,7 +71,7 @@ function handleMessage(sender_psid, received_message) {
 function callSendAPI(sender_psid, response) {
   // Construct the message body
  
-  let request_body = {
+  let request_body = JSON.stringify({
     "messaging_type":"RESPONSE",
     "recipient": {
       "id": sender_psid
@@ -79,7 +79,7 @@ function callSendAPI(sender_psid, response) {
     "message":{
       "text": "Bot ตอบ "
     } 
-  }
+  });
   console.log(request_body);
 
   var headers = {
