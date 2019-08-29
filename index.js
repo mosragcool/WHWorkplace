@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
- console.log('Post OK 2');
+
 
   let body = req.body;
 
@@ -41,19 +41,12 @@ app.post('/webhook', (req, res) => {
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
-     console.log(entry.id);
-     if(entry.id === '100036992748686')
-     {
-res.send('Testt');
-
-      console.log(entry.changes);
-      console.log(entry.changes[0]);
-     
-     }
-    
-    // console.log(webhook_event[0]['message']['text']);
+       // console.log(webhook_event[0]['message']['text']);
      //console.log(webhook_event[0]['id']);
     // console.log(webhook_event[0]['thread']); 
+    
+    
+
     
      
     });
