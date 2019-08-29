@@ -28,7 +28,7 @@ try{
 
 
   let body = req.body;
-
+  console.log(body.object);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
@@ -37,11 +37,13 @@ try{
 
       // Gets the message. entry.messaging is an array, but
       // will only ever contain one message, so we get index 0
-    //  let webhook_event = entry.messaging[0];
+    //  
      //console.log(webhook_event);
     
      //res.send('ส่งข้อความกลับ'); 
      console.log('********');
+     let webhook_event = entry.messaging[0];
+     console.log(webhook_event[0]['message']);
    //  console.log(entry.id);
      
      //res.send('Testt');
@@ -62,7 +64,7 @@ try{
    // res.status(200).send('EVENT_RECEIVED');
    res.status(200).send('EVENT_RECEIVED');
   } else {
-    console.log(body.object);
+   
     // Returns a '404 Not Found' if event is not from a page subscription
    // res.sendStatus(404).send('Error');
   }
