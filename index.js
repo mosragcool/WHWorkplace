@@ -1,5 +1,6 @@
 express = require('express'),
 bodyParser = require('body-parser'),
+
 app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
@@ -92,6 +93,8 @@ var options = {
   headers : headers,
   body:  request_body
 }
+
+var http = require('http');
 
 http.request(options, function(res) {
   console.log('STATUS: ' + res.statusCode);
