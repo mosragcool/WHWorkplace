@@ -30,7 +30,7 @@ try {
   let body = req.body;
 
   // Checks this is an event from a page subscription
-  if (body.object === 'page') {
+  if (body.object === 'page' || body.object === 'user') {
  
  
  
