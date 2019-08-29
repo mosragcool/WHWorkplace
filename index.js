@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 
 app.post('/webhook', (req, res) => {
-  console.log(Date.now);
+
   console.log('Start');
 try {
 
