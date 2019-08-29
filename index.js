@@ -28,7 +28,7 @@ try{
 
 
  // let body = req.body;
-  console.log('Start'+ Date.now());
+  console.log('Start Time : '+ Date.now());
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
