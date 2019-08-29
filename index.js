@@ -77,7 +77,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message":{
-      "text": "Bot ตอบ "
+      "text": "กำลังทำอยู่จ้า ใจเย็นๆน่ะจ๊ะ "
     } 
   });
   console.log(request_body);
