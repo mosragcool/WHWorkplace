@@ -72,7 +72,7 @@ function callSendAPI(sender_psid, response) {
   // Construct the message body
  
   let request_body = {
-   // "messaging_type":"RESPONSE",
+    "messaging_type":"RESPONSE",
     "recipient": {
       "id": sender_psid
     },
@@ -83,7 +83,7 @@ function callSendAPI(sender_psid, response) {
   console.log(request_body);
 
   var headers = {
-    "Content-Type": "application/json; charset=utf-8"
+    "Content-Type": "application/json"
   };
 
 var options = {
