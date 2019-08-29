@@ -24,16 +24,12 @@ app.use(function (req, res, next) {
 
 app.post('/webhook', (req, res) => {
 
-  console.log('Start');
-try {
+ console.log('Post OK 2');
 
   let body = req.body;
 
   // Checks this is an event from a page subscription
-  if (body.object === 'page' || body.object === 'user') {
- 
- 
- 
+  if (body.object === 'page') {
 
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
@@ -44,17 +40,19 @@ try {
      //console.log(webhook_event);
     
      //res.send('ส่งข้อความกลับ'); 
-     console.log(body.object);
-     console.log('********'); 
-     let webhook_event = entry.messaging[0];
-     console.log(webhook_event[0]);
-    // console.log(webhook_event[0]['sender']['id']);
-        console.log(webhook_event[0]['message']);
-  
-  //   console.log(webhook_event[0]['thread']); 
-    
-    
+     console.log('********');
+   //  console.log(entry.id);
+     
+res.send('Testt');
 
+      //console.log(entry.changes);
+      //console.log(entry.changes[0]);
+     
+     
+    
+    // console.log(webhook_event[0]['message']['text']);
+     //console.log(webhook_event[0]['id']);
+    // console.log(webhook_event[0]['thread']); 
     
      
     });
@@ -63,19 +61,10 @@ try {
    // res.status(200).send('EVENT_RECEIVED');
    res.status(200).send('EVENT_RECEIVED');
   } else {
-  //  console.log(body.object);
+    //console.log(body.object);
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404).send('Error');
   }
-
-}
-catch(express)
-{
- 
-}
-
-
- 
 
 });
 
