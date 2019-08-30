@@ -96,7 +96,7 @@ var options = {
 
 var https = require('https');
 
-
+console.log('Before Start');
 var req = https.request(options, function(res) {
   res.setEncoding('utf8');
   res.on('data', function (chunk) {
