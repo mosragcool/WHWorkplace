@@ -16,8 +16,9 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
   console.log("Start");
+  console.log(body.object);
   if (body.object === 'page') {
-
+    console.log("1");
 
     body.entry.forEach(function(entry) {
 
@@ -40,6 +41,7 @@ app.post('/webhook', (req, res) => {
     // Returns a '200 OK' response to all requests
     res.status(200).send('EVENT_RECEIVED');
   } else {
+    
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
