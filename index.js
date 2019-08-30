@@ -14,7 +14,7 @@ var jsonParser = bodyParser.json();
 app.post('/webhook',jsonParser, (req, res) => {  
  
   let body = req.body;
-
+  console.log(body);
   if (body.object === 'page') {
       console.log('OK');
 
