@@ -1,4 +1,3 @@
-const
 express = require('express'),
 bodyParser = require('body-parser'),
 app = express().use(bodyParser.json()); // creates express http server
@@ -8,11 +7,11 @@ app = express().use(bodyParser.json()); // creates express http server
 
 
 app.post('/webhook', (req, res) => {  
- 
+  console.log('Start');
   let body = req.body;
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-    console.log('OK');
+
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
