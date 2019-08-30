@@ -7,12 +7,12 @@ const
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
- 
+  console.log('1');
   let body = req.body;
-
+  console.log('2');
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-
+    console.log('3');
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
@@ -26,9 +26,10 @@ app.post('/webhook', (req, res) => {
     res.status(200).send('EVENT_RECEIVED');
   } else {
     // Returns a '404 Not Found' if event is not from a page subscription
+    console.log('4');
     res.sendStatus(404);
   }
-
+  console.log('5');
 });
 
 app.get('/webhook', (req, res) => {
