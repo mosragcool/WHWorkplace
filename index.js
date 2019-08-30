@@ -1,8 +1,8 @@
-express = require('express'),
-bodyParser = require('body-parser'),
+var express = require('express');
+var bodyParser = require('body-parser');
 
-app = express().use(bodyParser.json()); // creates express http server
-
+var app = express();//.use(bodyParser.json()); // creates express http server
+var jsonParser = bodyParser.json();
 // Sets server port and logs message on success
 
 
@@ -11,7 +11,7 @@ app = express().use(bodyParser.json()); // creates express http server
 
 
 
-app.post('/webhook', (req, res) => {  
+app.post('/webhook',jsonParser, (req, res) => {  
  
   let body = req.body;
 
