@@ -15,6 +15,7 @@ app.post('/webhook', (req, res) => {
  
   let body = req.body;
 
+  console.log("Start");
   if (body.object === 'page') {
 
 
@@ -71,6 +72,7 @@ function handleMessage(sender_psid, received_message) {
 function callSendAPI(sender_psid, response) {
   // Construct the message body
  
+  
   var request_body = JSON.stringify({
     "messaging_type":"RESPONSE",
     "recipient": {
