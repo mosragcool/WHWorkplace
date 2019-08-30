@@ -12,12 +12,12 @@ app.listen(process.env.PORT , () => console.log('webhook is listening'));
 
 
 app.post('/webhook', (req, res) => {  
-  console.log('POST1');
+  
   let body = req.body;
-
+  console.log('POST1');
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-
+    console.log('POST2');
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
