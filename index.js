@@ -1,7 +1,8 @@
 console.log('Start');
 // Imports dependencies and set up http server
-  express = require('express'),
-  bodyParser = require('body-parser'),
+  express = require('express');
+  console.log('1');
+  bodyParser = require('body-parser');
   app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
