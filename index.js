@@ -1,4 +1,3 @@
-'use strict';
 
 // Imports dependencies and set up http server
 const
@@ -7,13 +6,13 @@ const
   app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
+
 
 
 app.post('/webhook', (req, res) => {  
  
   let body = req.body;
-
+console.log(body.object);
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
