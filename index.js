@@ -1,23 +1,18 @@
 const
-express = require('express'),
-bodyParser = require('body-parser'),
-
-app = express().use(bodyParser.json()); // creates express http server
+  express = require('express'),
+  bodyParser = require('body-parser'),
+  app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
-
-
-
-// Creates the endpoint for our webhook
-
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
-  
+ 
   let body = req.body;
-  console.log('POST1');
+
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
-    console.log('POST2');
+
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function(entry) {
 
@@ -35,8 +30,6 @@ app.post('/webhook', (req, res) => {
   }
 
 });
-
-
 
 app.get('/webhook', (req, res) => {
  
@@ -56,7 +49,7 @@ app.get('/webhook', (req, res) => {
       
       // Responds with the challenge token from the request
       //console.log(PAGE_ACCESS_TOKEN);
-      //console.log('WEBHOOK_VERIFIED');
+      console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
     
     } else {
