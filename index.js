@@ -7,7 +7,7 @@ app = express().use(bodyParser.json()); // creates express http server
 
 
 app.post('/webhook', (req, res) => {  
-  console.log('Start');
+ 
   let body = req.body;
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
