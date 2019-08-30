@@ -1,22 +1,24 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+express = require('express'),
+bodyParser = require('body-parser'),
 
-var app = express();//.use(bodyParser.json()); // creates express http server
-var jsonParser = bodyParser.json();
+app = express().use(bodyParser.json()); // creates express http server
+
 // Sets server port and logs message on success
-
+app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 
 // Creates the endpoint for our webhook
 
 
 
-app.post('/webhook',jsonParser, (req, res) => {  
+app.post('/webhook', (req, res) => {  
  
+  console.log(req);
+
   let body = req.body;
-  console.log(body);
+
   if (body.object === 'page') {
-      console.log('OK');
+
 
     body.entry.forEach(function(entry) {
 
@@ -77,7 +79,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message":{
-      "text": "Bot ตอบ "
+      "text": "กำลังทำอยู่จ้า ใจเย็นๆน่ะจ๊ะ "
     } 
   });
   console.log(request_body);
