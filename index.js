@@ -1,6 +1,5 @@
-
+console.log('Start');
 // Imports dependencies and set up http server
-const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
@@ -10,7 +9,7 @@ const
 
 
 app.post('/webhook', (req, res) => {  
-  console.log('Start');
+  console.log('Post OK');
   let body = req.body;
 console.log(body.object);
   // Checks this is an event from a page subscription
