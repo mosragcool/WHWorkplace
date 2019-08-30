@@ -1,14 +1,9 @@
-console.log('Start');
-// Imports dependencies and set up http server
-  express = require('express');
-  console.log('1');
-  bodyParser = require('body-parser');
-  console.log('2');
-  app = express().use(bodyParser.json()); // creates express http server
-  console.log('3');
-// Sets server port and logs message on success
-
-
+express = require('express');
+console.log('1');
+bodyParser = require('body-parser');
+console.log('2');
+app = express().use(bodyParser.json()); // creates express http server
+console.log('3');
 
 app.post('/webhook', (req, res) => {  
   console.log('Post OK');
