@@ -25,7 +25,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid = webhook_event.sender.id;
       if (webhook_event.message) {
        console.log(webhook_event);
-        handleMessage(sender_psid, webhook_event.message);        
+      // handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
@@ -44,6 +44,8 @@ app.post('/webhook', (req, res) => {
   }
 
 });
+
+/*
 
 function handleMessage(sender_psid, received_message) {
 
@@ -106,20 +108,10 @@ var req = https.request(options, function(res) {
 req.write(request_body);
 req.end();
   
-/*
-  request({
-    "uri": "https://graph.facebook.com/v4.0/me/messages",
-    "qs": { "access_token": "DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn" },
-   "method": "POST",
-    "json": request_body
-  }, function (err, res, body) {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  });   */
+
 }
+
+*/
 
 app.get('/webhook', (req, res) => {
  
