@@ -23,7 +23,12 @@ if(sender_psid == "100036992748686")
   console.log('OK');
 }*/
 
-console.log(body.entry);
+if(body.entry.id == "100036992748686")
+{
+  console.log('OK');
+}
+
+
 
   if (body.object === 'page') {
     console.log(body.object);
