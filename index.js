@@ -44,6 +44,10 @@ app.post('/webhook',jsonParser, function(req, res)  {
 
   let body = req.body;
   console.log(body);
+  body.entry.forEach(function(entry) {
+    console.log(entry);
+  });
+
   if (body.object === 'page') {
     console.log("OK");
     console.log(entry);
