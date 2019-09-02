@@ -13,10 +13,10 @@ app = express().use(bodyParser.json()); // creates express http server
 
 app.post('/webhook', (req, res) => {  
  
-  console.log(req);
+
 
   let body = req.body;
-
+  console.log(body);
   if (body.object === 'page') {
     console.log("OK");
     console.log(entry);
