@@ -12,8 +12,8 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 
 app.post('/webhook', (req, res) => {  
- 
-  //console.log(req);
+ try {
+    //console.log(req);
  // console.log('OK');
  let body = req.body;
  /*  let webhook_event = entry.messaging[0];
@@ -50,6 +50,12 @@ if(sender_psid == "100036992748686")
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
+   
+ }catch(express)
+ {
+  console.log('Error');
+ }
+ 
 
 });
 
