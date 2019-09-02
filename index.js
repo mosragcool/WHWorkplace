@@ -23,6 +23,8 @@ if(sender_psid == "100036992748686")
   console.log('OK');
 }*/
 
+console.log(body.entry);
+
   if (body.object === 'page') {
     console.log(body.object);
 
@@ -53,7 +55,7 @@ if(sender_psid == "100036992748686")
    
  }catch(express)
  {
-  console.log('Error');
+  console.log('Error post');
  }
  
 
@@ -126,8 +128,8 @@ req.end();
 } */
 
 app.get('/webhook', (req, res) => {
- 
-  // Your verify token. Should be a random string.
+ try{
+    // Your verify token. Should be a random string.
   let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt";
     
   // Parse the query params
@@ -151,6 +153,12 @@ app.get('/webhook', (req, res) => {
       res.sendStatus(403);      
     }
   }
+
+}catch(express)
+{
+ console.log('Error get');
+}
+ 
 });
 
 
