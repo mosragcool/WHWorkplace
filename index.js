@@ -4,7 +4,7 @@ bodyParser = require('body-parser'),
 app = express().use(bodyParser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 
 // Creates the endpoint for our webhook
@@ -14,25 +14,25 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  
   //console.log(req);
-
+  console.log('OK');
   let body = req.body;
 
   if (body.object === 'page') {
-
+   
 
     body.entry.forEach(function(entry) {
 
-      let webhook_event = entry.messaging[0];
-         console.log(entry);
-      let sender_psid = webhook_event.sender.id;
-      if (webhook_event.message) {
-       console.log(webhook_event);
-        handleMessage(sender_psid, webhook_event.message);        
-      }
-      else
-      {
+    //  let webhook_event = entry.messaging[0];
+     //    console.log(entry);
+    //  let sender_psid = webhook_event.sender.id;
+   //   if (webhook_event.message) {
+   //    console.log(webhook_event);
+       // handleMessage(sender_psid, webhook_event.message);        
+   //   }
+   //   else
+   //   {
    
-      }
+   //   }
 
      // console.log(webhook_event['message']['text']);
     // console.log(webhook_event['sender']['id']);
@@ -47,6 +47,8 @@ app.post('/webhook', (req, res) => {
 
 });
 
+
+/*
 function handleMessage(sender_psid, received_message) {
 
   let response;
@@ -108,20 +110,8 @@ var req = https.request(options, function(res) {
 req.write(request_body);
 req.end();
   
-/*
-  request({
-    "uri": "https://graph.facebook.com/v4.0/me/messages",
-    "qs": { "access_token": "DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn" },
-   "method": "POST",
-    "json": request_body
-  }, function (err, res, body) {
-    if (!err) {
-      console.log('message sent!')
-    } else {
-      console.error("Unable to send message:" + err);
-    }
-  });   */
-}
+
+} */
 
 app.get('/webhook', (req, res) => {
  
@@ -156,6 +146,6 @@ app.get('/webhook', (req, res) => {
 
 
 
-app.listen(process.env.PORT || 1234)
+
 //app.listen(1234);
 //https.createServer(app).listen(1234);
