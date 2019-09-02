@@ -22,17 +22,17 @@ app.post('/webhook', (req, res) => {
 
     body.entry.forEach(function(entry) {
 
-    //  let webhook_event = entry.messaging[0];
-     //    console.log(entry);
-    //  let sender_psid = webhook_event.sender.id;
-   //   if (webhook_event.message) {
+      let webhook_event = entry.messaging[0];
+         console.log(entry);
+      let sender_psid = webhook_event.sender.id;
+      if (webhook_event.message) {
    //    console.log(webhook_event);
        // handleMessage(sender_psid, webhook_event.message);        
-   //   }
-   //   else
-   //   {
+      }
+      else
+      {
    
-   //   }
+      }
 
      // console.log(webhook_event['message']['text']);
     // console.log(webhook_event['sender']['id']);
@@ -116,7 +116,7 @@ req.end();
 app.get('/webhook', (req, res) => {
  
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt"
+  let VERIFY_TOKEN = "ga75HpoblY9qBtOKo2m8QXauNvBoKQzt";
     
   // Parse the query params
   let mode = req.query['hub.mode'];
