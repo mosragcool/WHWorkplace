@@ -2,12 +2,7 @@ express = require('express'),
 bodyParser = require('body-parser'),
 
 app = express().use(bodyParser.json()); // creates express http server
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");//res.header('Access-Control-Allow-Origin', 'http://localhost:8888'); //or restrict domainะ
-  res.header("Access-Control-Allow-Headers", "cache-control, content-type, departmentuid, hasanonymouspermission, if-modified-since, incus-token, patientorderuid, useruid, patientorderitemuid");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-  next();
-});
+
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
@@ -19,7 +14,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  
   //console.log(req);
-  console.log('OK');
+ // console.log('OK');
   let body = req.body;
 
   if (body.object === 'page') {
