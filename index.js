@@ -13,7 +13,7 @@ app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
  
-  console.log(req);
+  //console.log(req);
 
   let body = req.body;
 
