@@ -14,7 +14,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  
   let body = req.body;
-  console.log(body.object);
+  //console.log(body.object);
   if (body.object === 'page') {
 
    
@@ -66,7 +66,30 @@ function handleMessage(sender_psid, received_message) {
   } 
 */
   // Sends the response message
-  callSendAPI(sender_psid, response);    
+  //callSendAPI(sender_psid, response);
+ // progressData(sender_psid,received_message);    
+}
+
+function progressData(sender_psid,received_message)
+{
+    var options = {
+        host: "jsonplaceholder.typicode.com",
+        path: "/posts/42", 
+        method: "GET"
+      }
+      
+      var https = require('https');
+      
+      
+      var req = https.request(options, function(res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+          console.log('BODY: ' + chunk);
+        });
+      })
+      console.log(req);
+      //req.write(request_body);
+      //req.end();
 }
 
 function callSendAPI(sender_psid, response) {
