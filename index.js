@@ -140,7 +140,7 @@ function ProcessMessage(sender_psid,message)
     
   }catch( express)
   {
-    console.log('Error');
+    console.log('Error :'+express);
   }
 
 
