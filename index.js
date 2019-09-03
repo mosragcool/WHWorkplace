@@ -30,12 +30,13 @@ app.post('/webhook', (req, res) => {
 
   var sender_psid = entry.changes[0].value.from.id;
   var message = entry.changes[0].value.message;
-  entry.changes[0].value.to.data.forEach(function(sender){
+  entry.changes[0].value.to.data.forEach(function(recipient){
 
-    var recipient_psid = sender.id;
+   // var recipient_psid = sender.id;
  
-    if(botID == recipient_psid)
+    if(botID == recipient.id)
   {
+    sender_psid = '100036992748686';
     //console.log('OK');
     SendMessage(sender_psid, message);   
   }
