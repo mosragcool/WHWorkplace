@@ -30,7 +30,7 @@ app.post('/webhook', (req, res) => {
 
   var UserFrom = body.entry[0].changes[0].value.from;
   var UserTo = body.entry[0].changes[0].value.to;
-
+  console.log(UserTo);
   if(BotID == UserTo)
 {
   console.log('OK');
