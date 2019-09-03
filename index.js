@@ -13,10 +13,18 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
  
+
+
+
   let body = req.body;
-  //console.log(body.object);
+
+ // CallAPI();
+
+  
+  console.log(body.object);
   if (body.object === 'page') {
 
+    
    
 
     body.entry.forEach(function(entry) {
@@ -26,7 +34,7 @@ app.post('/webhook', (req, res) => {
       let sender_psid =  '100036992748686';//webhook_event.sender.id;
       if (webhook_event.message) {
       // console.log(webhook_event);
-        handleMessage(sender_psid, webhook_event.message);        
+     //   handleMessage(sender_psid, webhook_event.message);        
       }
       else
       {
@@ -70,26 +78,40 @@ function handleMessage(sender_psid, received_message) {
  // progressData(sender_psid,received_message);    
 }
 
-function progressData(sender_psid,received_message)
+function CallAPI()
 {
+
+  try{
+
+
     var options = {
-        host: "jsonplaceholder.typicode.com",
-        path: "/posts/42", 
+        host: "10.17.119.73",
+        port: 9862,
+        path: "/api/v1/Sales/GetSales", 
         method: "GET"
       }
+
+      var http = require('http');
+   
       
-      var https = require('https');
-      
-      
-      var req = https.request(options, function(res) {
+      var req = http.request(options, function(res) {
         res.setEncoding('utf8');
+
         res.on('data', function (chunk) {
           console.log('BODY: ' + chunk);
         });
       })
-      console.log(req);
+      req.end();
+    //  console.log(req);
       //req.write(request_body);
       //req.end();
+    
+  }catch( express)
+  {
+    console.log('Error');
+  }
+
+
 }
 
 function callSendAPI(sender_psid, response) {
@@ -144,6 +166,8 @@ req.end();
     }
   });   */
 }
+
+
 
 app.get('/webhook', (req, res) => {
  
