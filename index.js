@@ -13,7 +13,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
  
-  var BotID = '293281931540823';
+  var botID = '293281931540823';
 
 
 
@@ -28,13 +28,13 @@ app.post('/webhook', (req, res) => {
   //console.log(body.entry[0].changes[0].value.from);
   //console.log(body.entry[0].changes[0].value.to);
 
-  var UserFrom = body.entry[0].changes[0].value.from.id;
-  var UserTo = body.entry[0].changes[0].value.to.data[0].id;
-  console.log(UserTo);
-  if(BotID == UserTo)
+  var sender_psid = entry.changes[0].value.from.id;
+  var recipient_psid = entry.changes[0].value.to.data[0].id;
+  var message_UserFrom = entry.changes[0].value.message;
+  if(botID == recipient_psid)
 {
   console.log('OK');
-  //handleMessage(sender_psid, webhook_event.message);   
+  handleMessage(sender_psid, message_UserFrom);   
 }
 
 
@@ -144,7 +144,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message":{
-      "text": "กำลังทำอยู่จ้า ใจเย็นๆน่ะจ๊ะ "
+      "text": "กำลังทำอยู่จ้า ใจเย็นๆดิ้"
     } 
   });
   console.log(request_body);
