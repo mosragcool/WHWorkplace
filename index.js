@@ -23,9 +23,9 @@ app.post('/webhook', (req, res) => {
 
  body.entry.forEach(function(entry) {
 
-  console.log(entry);
+  //console.log(entry);
   //console.log(body.entry[0].changes);
- // console.log(entry.changes[0].value.from);
+  //console.log(entry.changes[0].value.from);
   //console.log(body.entry[0].changes[0].value.to);
 
   var sender_psid = entry.changes[0].value.from.id;
@@ -36,8 +36,8 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient_psid)
   {
-    console.log('OK');
-    //callSendAPI(sender_psid, message);   
+    //console.log('OK');
+    callSendAPI(sender_psid, message);   
   }
   
   
