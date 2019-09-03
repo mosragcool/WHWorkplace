@@ -36,9 +36,9 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
-    sender_psid = '100036992748686';
+    //sender_psid = '100036992748686';
     //console.log('OK');
-    SendMessage(sender_psid, message);   
+    ProcessMessage(sender_psid, message);   
   }
   
   
@@ -109,16 +109,16 @@ function handleMessage(sender_psid, received_message) {
 
 
 
-function CallAPI()
+function ProcessMessage(sender_psid,message)
 {
 
   try{
-
+ var respondMessage = '';
 
     var options = {
         host: "10.17.119.73",
         port: 9862,
-        path: "/api/v1/Sales/GetSales", 
+        path: "/api/v1/Sales/GetSales?Message="+message, 
         method: "GET"
       }
 
@@ -129,13 +129,13 @@ function CallAPI()
         res.setEncoding('utf8');
 
         res.on('data', function (chunk) {
-          console.log('BODY: ' + chunk);
+          RespondMessage = chunk;
         });
       })
       req.end();
-    //  console.log(req);
-      //req.write(request_body);
-      //req.end();
+    
+      SendMessage(sender_psid,respondMessage)
+
     
   }catch( express)
   {
@@ -145,7 +145,7 @@ function CallAPI()
 
 }
 
-function SendMessage(sender_psid, response) {
+function SendMessage(sender_psid, respondMessage) {
   // Construct the message body
    
   var request_body = JSON.stringify({
@@ -154,7 +154,7 @@ function SendMessage(sender_psid, response) {
       "id": sender_psid
     },
     "message":{
-      "text": "กำลังทำอยู่จ้า ใจเย็นๆดิ้"
+      "text": respondMessage
     } 
   });
   console.log(request_body);
