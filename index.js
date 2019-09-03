@@ -23,10 +23,13 @@ app.post('/webhook', (req, res) => {
   
 
   console.log(body);
+  console.log(body.entry[0].changes);
+
+   /* Backup กรณีที่เป็น Page
   if (body.object === 'page') {
 
     
-   
+  
 
     body.entry.forEach(function(entry) {
 
@@ -52,7 +55,7 @@ app.post('/webhook', (req, res) => {
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
-
+*/
 });
 
 function handleMessage(sender_psid, received_message) {
