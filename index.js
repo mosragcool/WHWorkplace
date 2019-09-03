@@ -13,6 +13,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
  
+  var BotID = '293281931540823';
 
 
 
@@ -20,12 +21,26 @@ app.post('/webhook', (req, res) => {
 
  // CallAPI();
 
-  
+ body.entry.forEach(function(entry) {
 
-  console.log(body);
-  console.log(body.entry[0].changes);
-  console.log(body.entry[0].changes[0].value.from);
-  console.log(body.entry[0].changes[0].value.to);
+  //console.log(body);
+  //console.log(body.entry[0].changes);
+  //console.log(body.entry[0].changes[0].value.from);
+  //console.log(body.entry[0].changes[0].value.to);
+
+  var UserFrom = body.entry[0].changes[0].value.from;
+  var UserTo = body.entry[0].changes[0].value.to;
+
+  if(BotID == UserTo)
+{
+  console.log('OK');
+  //handleMessage(sender_psid, webhook_event.message);   
+}
+
+
+
+});
+
 
    /* Backup กรณีที่เป็น Page
   if (body.object === 'page') {
