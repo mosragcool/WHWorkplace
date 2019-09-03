@@ -112,7 +112,7 @@ function handleMessage(sender_psid, received_message) {
 function ProcessMessage(sender_psid,message)
 {
 
-  try{
+  //try{
  var respondMessage = '';
 
     var options = {
@@ -132,16 +132,16 @@ function ProcessMessage(sender_psid,message)
           console.log(chunk);
           respondMessage = chunk;
         });
-      })
+      });
       req.end();
  
       SendMessage(sender_psid,respondMessage)
 
     
-  }catch( express)
-  {
-    console.log('Error :'+express);
-  }
+ // }catch( express)
+ // {
+ //   console.log('Error :'+express);
+ // }
 
 
 }
