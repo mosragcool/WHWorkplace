@@ -37,7 +37,7 @@ app.post('/webhook', (req, res) => {
     if(botID == recipient_psid)
   {
     console.log('OK');
-    callSendAPI(sender_psid, message);   
+    callSendAPI(recipient_psid, message);   
   }
   
   
