@@ -29,13 +29,20 @@ app.post('/webhook', (req, res) => {
   //console.log(body.entry[0].changes[0].value.to);
 
   var sender_psid = entry.changes[0].value.from.id;
-  var recipient_psid = entry.changes[0].value.to.data[0].id;
   var message = entry.changes[0].value.message;
-  if(botID == recipient_psid)
-{
-  console.log('OK');
-  callSendAPI(sender_psid, message);   
-}
+  entry.changes[0].value.to.data.forEach(function(sender){
+
+    var recipient_psid = sender.id;
+ 
+    if(botID == recipient_psid)
+  {
+    console.log('OK');
+    callSendAPI(sender_psid, message);   
+  }
+  
+  
+
+  });
 
 
 
