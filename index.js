@@ -129,11 +129,12 @@ function ProcessMessage(sender_psid,message)
         res.setEncoding('utf8');
 
         res.on('data', function (chunk) {
+          console.log(chunk);
           respondMessage = chunk;
         });
       })
       req.end();
-    console.log(respondMessage);
+ 
       SendMessage(sender_psid,respondMessage)
 
     
