@@ -24,6 +24,8 @@ app.post('/webhook', (req, res) => {
 
   console.log(body);
   console.log(body.entry[0].changes);
+  console.log(body.entry[0].changes[0].value.from);
+  console.log(body.entry[0].changes[0].value.to);
 
    /* Backup กรณีที่เป็น Page
   if (body.object === 'page') {
