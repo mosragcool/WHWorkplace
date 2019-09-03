@@ -21,7 +21,8 @@ app.post('/webhook', (req, res) => {
  // CallAPI();
 
   
-  console.log(body.object);
+
+  console.log(body);
   if (body.object === 'page') {
 
     
