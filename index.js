@@ -37,7 +37,7 @@ app.post('/webhook', (req, res) => {
     if(botID == recipient_psid)
   {
     //console.log('OK');
-    callSendAPI(sender_psid, message);   
+    SendMessage(sender_psid, message);   
   }
   
   
@@ -106,6 +106,8 @@ function handleMessage(sender_psid, received_message) {
  // progressData(sender_psid,received_message);    
 }
 
+
+
 function CallAPI()
 {
 
@@ -142,7 +144,7 @@ function CallAPI()
 
 }
 
-function callSendAPI(sender_psid, response) {
+function SendMessage(sender_psid, response) {
   // Construct the message body
    
   var request_body = JSON.stringify({
