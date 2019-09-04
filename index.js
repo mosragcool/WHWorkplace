@@ -113,7 +113,7 @@ function ProcessMessage(sender_psid,message)
 {
 
   //try{
- var respondMessage = '';
+
 
     var options = {
         host: "10.17.119.87",
@@ -130,12 +130,13 @@ function ProcessMessage(sender_psid,message)
 
         res.on('data', function (chunk) {
           console.log(chunk);
-          respondMessage = chunk;
+          SendMessage(sender_psid,chunk);
+         
         });
       });
       req.end();
  
-      SendMessage(sender_psid,respondMessage)
+     
 
     
  // }catch( express)
