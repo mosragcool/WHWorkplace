@@ -116,9 +116,9 @@ function ProcessMessage(sender_psid,message)
 
 
     var options = {
-        host: "10.17.1.32",
+        host: '10.17.1.32',
         port: 9862,
-        path: "/api/v1/Sales/GetSales?Message="+message, 
+        path: '/api/v1/Sales/GetSales?Message='+message, 
         method: "GET"
       }
 
@@ -179,7 +179,7 @@ var https = require('https');
 var req = https.request(options, function(res) {
   res.setEncoding('utf8');
   res.on('data', function (chunk) {
-    console.log('BODY: ' + chunk);
+    console.log('Complete');
   });
 })
 req.write(request_body);
