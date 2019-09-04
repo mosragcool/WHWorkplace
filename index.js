@@ -129,7 +129,7 @@ function ProcessMessage(sender_psid,message)
         res.setEncoding('utf8');
 
         res.on('data', function (chunk) {
-          console.log(chunk);
+          //console.log(chunk);
           SendMessage(sender_psid,chunk);
          
         });
@@ -159,7 +159,7 @@ function SendMessage(sender_psid, Message) {
       "text": Message
     } 
   });
-  console.log(request_body);
+  //console.log(request_body);
 
   
 
