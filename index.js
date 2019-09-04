@@ -135,7 +135,7 @@ function ProcessMessage(sender_psid,message)
       });
       req.end();
  
-    //  SendMessage(sender_psid,respondMessage)
+      SendMessage(sender_psid,respondMessage)
 
     
  // }catch( express)
@@ -146,7 +146,7 @@ function ProcessMessage(sender_psid,message)
 
 }
 
-function SendMessage(sender_psid, respondMessage) {
+function SendMessage(sender_psid, Message) {
   // Construct the message body
    
   var request_body = JSON.stringify({
@@ -155,7 +155,7 @@ function SendMessage(sender_psid, respondMessage) {
       "id": sender_psid
     },
     "message":{
-      "text": respondMessage
+      "text": Message
     } 
   });
   console.log(request_body);
