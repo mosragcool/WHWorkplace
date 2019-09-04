@@ -36,6 +36,7 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
+    console.log(sender_psid);
     //sender_psid = '100036992748686';
     //console.log('OK');
     ProcessMessage(sender_psid, message);   
