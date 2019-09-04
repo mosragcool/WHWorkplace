@@ -119,7 +119,10 @@ function ProcessMessage(sender_psid,message)
         host: '10.17.1.32',
         port: 9862,
         path: '/api/v1/Sales/GetSales?Message='+message, 
-        method: "GET"
+        method: "GET",
+        headers: {
+          "Content-Type": "application/javascript"
+        }
       }
 
       var http = require('http');
