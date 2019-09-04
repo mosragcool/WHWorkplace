@@ -20,7 +20,7 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
  // CallAPI();
- console.log(body.object);
+ //console.log(body.object);
  body.entry.forEach(function(entry) {
 
   //console.log(entry);
@@ -116,7 +116,7 @@ function ProcessMessage(sender_psid,message)
  var respondMessage = '';
 
     var options = {
-        host: "10.17.119.73",
+        host: "10.17.119.87",
         port: 9862,
         path: "/api/v1/Sales/GetSales?Message="+message, 
         method: "GET"
