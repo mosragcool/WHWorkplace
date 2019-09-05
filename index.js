@@ -97,7 +97,7 @@ function ProcessMessage(sender_psid,message)
 
 
     var command = message.split('-');
-    var Value = null;
+    var Value = "";
 
     if(command.length >0)
     {
@@ -108,7 +108,7 @@ function ProcessMessage(sender_psid,message)
       });
 
 
-      if(command[0] == 'S')
+      if(command[0] === 'S')
       {
         var options = {
           host: '10.17.1.32',
@@ -139,7 +139,7 @@ function ProcessMessage(sender_psid,message)
       }
     }
 
-    if(!Value)
+    if(Value === "")
     {
       console.log(Value);
       Value = "ไม่มีคำสั่งดังกล่าว";
