@@ -99,7 +99,7 @@ function ProcessMessage(sender_psid,message)
     var command = message.split('-');
     var empty = "ไม่มีคำสั่งดังกล่าว";
 
-    if(command.length >0)
+    if(command.length >1)
     {
       var request_body = JSON.stringify({
       
