@@ -131,7 +131,8 @@ var Value = "";
     
           res.on('data', function (chunk) {
             Value = chunk;
-         //   console.log(chunk);
+            console.log(chunk);
+            console.log(Value);
            
            
           });
