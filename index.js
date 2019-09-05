@@ -108,7 +108,7 @@ function ProcessMessage(sender_psid,message)
       });
 
 
-      if(command[0] === 'S')
+      if(command[0].toUpperCase() === 'S')
       {
         var options = {
           host: '10.17.1.32',
