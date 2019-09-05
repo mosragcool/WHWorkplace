@@ -102,9 +102,10 @@ function ProcessMessage(sender_psid,message)
 
     var command = message.split('-');
 var Value = "";
-
+console.log("จำนวน "+command.length);
     if(command.length >0)
     {
+      console.log("คำสั่ง "+command[0]);
       if(command[0] == 'S')
       {
         var options = {
