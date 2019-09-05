@@ -14,8 +14,8 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  
   var botID = '293281931540823';
-
-
+  
+ // ProcessMessage("s","J TC");
 
   let body = req.body;
 
@@ -115,6 +115,39 @@ function ProcessMessage(sender_psid,message)
 
   //try{
 
+    var request_body = JSON.stringify({
+      
+      "message": message
+      
+    });
+
+    var options = {
+      host: '10.17.1.32',
+      port: 9862,
+      path: '/api/v1/Sales/GetSales', 
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Lenght": Buffer.byteLength(request_body)
+      }
+    }
+
+    var http = require('http');
+ 
+    
+    var req = http.request(options, function(res) {
+      res.setEncoding('utf8');
+
+      res.on('data', function (chunk) {
+        console.log(chunk);
+        SendMessage(sender_psid,chunk);
+       
+      });
+    });
+    req.write(request_body);
+    req.end();
+
+  /*
 
     var options = {
         host: '10.17.1.32',
@@ -134,13 +167,13 @@ function ProcessMessage(sender_psid,message)
 
         res.on('data', function (chunk) {
           console.log(chunk);
-          SendMessage(sender_psid,chunk);
+         // SendMessage(sender_psid,chunk);
          
         });
       });
       req.end();
  
-     
+     */
 
     
  // }catch( express)
