@@ -20,7 +20,7 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
  // CallAPI();
- //console.log(body.object);
+ console.log(body.object);
  body.entry.forEach(function(entry) {
 
   //console.log(entry);
@@ -84,29 +84,7 @@ app.post('/webhook', (req, res) => {
 */
 });
 
-function handleMessage(sender_psid, received_message) {
 
-  let response;
-/*
-  // Checks if the message contains text
-  
-  if (received_message.text) {
-  
-    // Creates the payload for a basic text message, which
-    // will be added to the body of our request to the Send API
-  
-
-  } else if (received_message.attachments) {
-    console.log('att');
-    // Gets the URL of the message attachment
-    let attachment_url = received_message.attachments[0].payload.url;
-  
-  } 
-*/
-  // Sends the response message
-  //callSendAPI(sender_psid, response);
- // progressData(sender_psid,received_message);    
-}
 
 
 
