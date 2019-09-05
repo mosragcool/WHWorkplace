@@ -97,12 +97,10 @@ function ProcessMessage(sender_psid,message)
 
 
     var command = message.split('-');
-var Value = "";
+    var Value = '';
 
     if(command.length >0)
     {
-      console.log("คำสั่ง "+command[1]);
-
       var request_body = JSON.stringify({
       
         "message": command[1]
@@ -131,8 +129,7 @@ var Value = "";
     
           res.on('data', function (chunk) {
             Value = chunk;
-            console.log(chunk);
-            console.log(Value);
+
            
            
           });
@@ -142,8 +139,9 @@ var Value = "";
       }
     }
 
-    if(Value == '')
+    if(Value == null || Value == '')
     {
+      console.log(Value);
       Value = "ไม่มีคำสั่งดังกล่าว";
     }
 
