@@ -24,7 +24,7 @@ app.post('/webhook', (req, res) => {
  body.entry.forEach(function(entry) {
 
   //console.log(entry);
-  //console.log(body.entry[0].changes);
+  console.log(body.entry[0].changes);
   //console.log(entry.changes[0].value.from);
   //console.log(body.entry[0].changes[0].value.to);
 
