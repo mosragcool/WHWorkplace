@@ -20,11 +20,11 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
  // CallAPI();
- console.log(body);
+ //console.log(body);
  body.entry.forEach(function(entry) {
 
   //console.log(entry);
-  console.log(body.entry[0].changes);
+ // console.log(body.entry[0].changes);
   //console.log(entry.changes[0].value.from);
   //console.log(body.entry[0].changes[0].value.to);
 
