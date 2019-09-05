@@ -128,7 +128,7 @@ function ProcessMessage(sender_psid,message)
           res.setEncoding('utf8');
     
           res.on('data', function (chunk) {
-            Value = chunk;
+            SendMessage(sender_psid,chunk);
 
            
            
@@ -138,6 +138,10 @@ function ProcessMessage(sender_psid,message)
         req.end();
       }
     }
+    else
+    {
+      SendMessage(sender_psid,"ไม่มีคำสั่งดังกล่าว");
+    }
 
   //  if(Value === "")
   //  {
@@ -145,7 +149,7 @@ function ProcessMessage(sender_psid,message)
  //     Value = "ไม่มีคำสั่งดังกล่าว";
  //   }
 
-    SendMessage(sender_psid,Value);
+   
     
 
   /*
