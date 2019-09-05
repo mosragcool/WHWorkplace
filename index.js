@@ -99,31 +99,50 @@ function ProcessMessage(sender_psid,message)
       
     });
 
-    var options = {
-      host: '10.17.1.32',
-      port: 9862,
-      path: '/api/v1/Sales/GetSales', 
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Content-Lenght": Buffer.byteLength(request_body)
+
+    var command = message.split('-');
+var Value = "";
+
+    if(command.length >0)
+    {
+      if(command[0] == 'S')
+      {
+        var options = {
+          host: '10.17.1.32',
+          port: 9862,
+          path: '/api/v1/Sales/GetSales', 
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Content-Lenght": Buffer.byteLength(request_body)
+          }
+        }
+    
+        var http = require('http');
+     
+        
+        var req = http.request(options, function(res) {
+          res.setEncoding('utf8');
+    
+          res.on('data', function (chunk) {
+            Value = chunk;
+         //   console.log(chunk);
+           
+           
+          });
+        });
+        req.write(request_body);
+        req.end();
       }
     }
 
-    var http = require('http');
- 
-    
-    var req = http.request(options, function(res) {
-      res.setEncoding('utf8');
+    if(Value == '')
+    {
+      Value = "ไม่มีคำสั่งดังกล่าว";
+    }
 
-      res.on('data', function (chunk) {
-        console.log(chunk);
-        SendMessage(sender_psid,chunk);
-       
-      });
-    });
-    req.write(request_body);
-    req.end();
+    SendMessage(sender_psid,Value);
+    
 
   /*
 
