@@ -97,7 +97,7 @@ function ProcessMessage(sender_psid,message)
 
 
     var command = message.split('-');
-    var Value = "ไม่มีคำสั่งดังกล่าว";
+    var empty = "ไม่มีคำสั่งดังกล่าว";
 
     if(command.length >0)
     {
@@ -140,7 +140,7 @@ function ProcessMessage(sender_psid,message)
     }
     else
     {
-      SendMessage(sender_psid,"ไม่มีคำสั่งดังกล่าว");
+      SendMessage(sender_psid,empty);
     }
 
   //  if(Value === "")
