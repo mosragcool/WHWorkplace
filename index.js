@@ -93,19 +93,23 @@ function ProcessMessage(sender_psid,message)
 
   //try{
 
-    var request_body = JSON.stringify({
-      
-      "message": message
-      
-    });
+   
 
 
     var command = message.split('-');
 var Value = "";
-console.log("จำนวน "+command.length);
+//console.log("จำนวน "+command.length);
     if(command.length >0)
     {
-      console.log("คำสั่ง "+command[0]);
+   //   console.log("คำสั่ง "+command[0]);
+
+      var request_body = JSON.stringify({
+      
+        "message": command[1]
+        
+      });
+
+
       if(command[0] == 'S')
       {
         var options = {
