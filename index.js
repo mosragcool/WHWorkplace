@@ -30,6 +30,9 @@ app.post('/webhook', (req, res) => {
 
   var sender_psid = entry.changes[0].value.from.id;
   var message = entry.changes[0].value.message;
+ var count = entry.changes[0].value.to.data.length;
+ console.log("จำนวนคนส่ง "+count);
+
   entry.changes[0].value.to.data.forEach(function(recipient){
 
    // var recipient_psid = sender.id;
