@@ -41,9 +41,9 @@ app.post('/webhook', (req, res) => {
   {
     console.log(entry);
     console.log("******");
-    console.log(entry[0].changes[0].value);
+    console.log(entry.changes[0].value);
     console.log("******");
-    console.log(entry[0].changes[0].value.to.data);
+    console.log(entry.changes[0].value.to.data);
     console.log("End");
 
 if(count > 1 )//& recipient.name.)
