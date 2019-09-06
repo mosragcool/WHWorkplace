@@ -39,10 +39,18 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
-    console.log(sender_psid);
+if(count > 1 )//& recipient.name.)
+{
+  var splitNameBot = message.split('@OFM - ITOps Bot ');
+  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]);   
+}
+else  ProcessMessage(sender_psid, message);   
+
+
+  //  console.log(sender_psid);
     //sender_psid = '100036992748686';
     //console.log('OK');
-    ProcessMessage(sender_psid, message);   
+   
   }
   
   
