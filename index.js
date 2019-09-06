@@ -41,8 +41,10 @@ app.post('/webhook', (req, res) => {
   {
 if(count > 1 )//& recipient.name.)
 {
+  var splitNameBot = message.split('@OFM - ITOps Bot');
+  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
   var splitNameBot = message.split('@OFM - ITOps Bot ');
-  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]);   
+  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
 }
 else  ProcessMessage(sender_psid, message);   
 
