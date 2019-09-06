@@ -39,12 +39,13 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
-  
+     
     console.log(body);
     console.log("******");
     console.log(entry);
     console.log("******");
-    console.log(entry.changes[0].value);
+    console.log(res);
+   // console.log(entry.changes[0].value);
 
     console.log("End");
 
@@ -130,7 +131,7 @@ function ProcessMessage(sender_psid,message)
       });
 
 
-      if(command[0].toUpperCase() === 'S' || command[0] === 'ยอดขาย' || command[0].toUpperCase() === 'SALES')
+      if(command[0].toUpperCase() === 'S' || command[0] === 'ยอดขาย' || command[0].toUpperCase() === 'SALES' || command[0].toUpperCase() === 'SALE')
       {
         var options = {
           host: '10.17.1.32',
