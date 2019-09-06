@@ -26,7 +26,7 @@ app.post('/webhook', (req, res) => {
   //console.log(entry);
   console.log(body.entry[0].changes);
   //console.log(entry.changes[0].value.from);
-  //console.log(body.entry[0].changes[0].value.to);
+  console.log(body.entry[0].changes[0].value.to);
 
   var sender_psid = entry.changes[0].value.from.id;
   var message = entry.changes[0].value.message;
