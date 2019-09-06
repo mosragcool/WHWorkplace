@@ -44,7 +44,7 @@ app.post('/webhook', (req, res) => {
     console.log("******");
     console.log(entry);
     console.log("******");
-    console.log(res);
+    console.log(req);
    // console.log(entry.changes[0].value);
 
     console.log("End");
