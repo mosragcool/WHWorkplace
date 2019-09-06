@@ -39,11 +39,12 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
+    console.log("******");
+    console.log(body);
     console.log(entry);
     console.log("******");
     console.log(entry.changes[0].value);
-    console.log("******");
-    console.log(entry.changes[0].value.to.data);
+
     console.log("End");
 
 if(count > 1 )//& recipient.name.)
