@@ -39,11 +39,12 @@ app.post('/webhook', (req, res) => {
  
     if(botID == recipient.id)
   {
-
-    console.log(body.entry[0].changes[0].value);
+    console.log(entry);
     console.log("******");
-    console.log(body.entry[0].changes[0].value.to.data);
-
+    console.log(entry[0].changes[0].value);
+    console.log("******");
+    console.log(entry[0].changes[0].value.to.data);
+    console.log("End");
 
 if(count > 1 )//& recipient.name.)
 {
@@ -240,7 +241,7 @@ var https = require('https');
 var req = https.request(options, function(res) {
   res.setEncoding('utf8');
   res.on('data', function (chunk) {
-    console.log('Complete');
+   // console.log('Complete');
   });
 })
 req.write(request_body);
