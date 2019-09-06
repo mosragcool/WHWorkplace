@@ -108,7 +108,7 @@ function ProcessMessage(sender_psid,message)
       });
 
 
-      if(command[0].toUpperCase() === 'S')
+      if(command[0].toUpperCase() === 'S' || command[0] === 'ยอดขาย' || command[0].toUpperCase() === 'SALES')
       {
         var options = {
           host: '10.17.1.32',
