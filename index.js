@@ -62,9 +62,9 @@ else  ProcessMessage(sender_psid, message);
   //  console.log(sender_psid);
     //sender_psid = '100036992748686';
     //console.log('OK');
-    res.status(200).send('EVENT_RECEIVED');
+  
   }
-  else  res.sendStatus(404);
+  
   
   
 
@@ -106,6 +106,8 @@ else  ProcessMessage(sender_psid, message);
     res.sendStatus(404);
   }
 */
+
+res.status(200).send('EVENT_RECEIVED');
 });
 
 
