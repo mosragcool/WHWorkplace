@@ -101,14 +101,11 @@ console.log(body.object);
      if(webhook_event.thread)
      {
      var sender_psid =   webhook_event.thread.id;
-     var message = webhook_event.message.text;
-      if(message.search('@OFM - ITOps Bot') > -1)
-      {
-        message = message.replace(/ /g,'');
-        ProcessMessage(sender_psid, message); 
-      }
-
-      
+     
+      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
      }  
      else 
      {
