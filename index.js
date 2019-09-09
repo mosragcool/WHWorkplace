@@ -90,8 +90,8 @@ console.log(body.object);
     body.entry.forEach(function(entry) {
 
       let webhook_event = entry.messaging[0];
-      console.log('**********');
-         console.log(webhook_event);
+     // console.log('**********');
+        // console.log(webhook_event);
         // console.log(webhook_event.sender.thread);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
