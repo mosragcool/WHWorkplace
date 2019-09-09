@@ -92,12 +92,14 @@ console.log(body.object);
       let webhook_event = entry.messaging[0];
       console.log('**********');
          console.log(webhook_event);
+         console.log(webhook_event.sender.thread);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
       //   var sender_psid =  webhook_event.sender.id;
      // var message = webhook_event.message.text;
 
+     //if()
 
     
 
