@@ -101,10 +101,14 @@ console.log(body.object);
      if(webhook_event.thread)
      {
      var sender_psid =   webhook_event.thread.id;
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+     var message = webhook_event.message.text;
+      if(message.search('@OFM - ITOps Bot') > -1)
+      {
+        message = message.replace(/ /g,'');
+        ProcessMessage(sender_psid, message); 
+      }
+
+      
      }  
      else 
      {
@@ -236,7 +240,7 @@ function SendMessage(sender_psid, Message) {
   var request_body = ''
   if(sender_psid.search('t_') > -1)
   {
-    console.log('2');
+   
     request_body = JSON.stringify({
       "messaging_type":"RESPONSE",
       "recipient": {
