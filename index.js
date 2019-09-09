@@ -88,9 +88,9 @@ else  ProcessMessage(sender_psid, message);
 
       let webhook_event = entry.messaging[0];
          console.log(webhook_event);
-         console.log(webhook_event.sender);
-         console.log(webhook_event.recipient);
-         console.log(webhook_event.message);
+         console.log(webhook_event.sender[0]);
+         console.log(webhook_event.recipient[0]);
+         console.log(webhook_event.message[0]);
       let sender_psid =  '100036992748686';//webhook_event.sender.id;
 
 
