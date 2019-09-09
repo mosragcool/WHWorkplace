@@ -232,15 +232,15 @@ function ProcessMessage(sender_psid,message)
 
 function SendMessage(sender_psid, Message) {
   // Construct the message body
-  console.log('1');
+  
   var request_body = ''
   if(sender_psid.search('t_') > -1)
   {
     console.log('2');
     request_body = JSON.stringify({
       "messaging_type":"RESPONSE",
-      "thread_key": {
-        "id": sender_psid
+      "recipient": {
+        "thread_key": sender_psid
       },
       "message":{
         "text": Message
@@ -249,7 +249,7 @@ function SendMessage(sender_psid, Message) {
   }
   else
   {
-    console.log('3');
+    
     request_body =   JSON.stringify({
       "messaging_type":"RESPONSE",
       "recipient": {
@@ -261,7 +261,7 @@ function SendMessage(sender_psid, Message) {
     });
   }
  
-  console.log('4');
+
   
 
 var options = {
@@ -273,7 +273,7 @@ var options = {
     "Content-Lenght": Buffer.byteLength(request_body)
   }
 }
-console.log('5');
+
 var https = require('https');
 
 
@@ -285,7 +285,7 @@ var req = https.request(options, function(res) {
 })
 req.write(request_body);
 req.end();
-console.log('6');
+
 /*
   request({
     "uri": "https://graph.facebook.com/v4.0/me/messages",
