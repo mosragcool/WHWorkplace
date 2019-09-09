@@ -95,7 +95,7 @@ console.log(body.object);
          console.log(webhook_event.recipient);
          console.log(webhook_event.message);
          var sender_psid =  webhook_event.sender.id;
-      var message = webhook_event.message.id;
+      var message = webhook_event.message.text;
 
 
     
