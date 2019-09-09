@@ -99,7 +99,7 @@ console.log(body.object);
          var sender_psid =   '';//webhook_event.sender.id;
       var message = webhook_event.message.text;
 
-     if(webhook_event.sender.thread != 'undefined')  sender_psid =   webhook_event.thread.id;
+     if(webhook_event.sender.thread)  sender_psid =   webhook_event.thread.id;
      else  sender_psid =   webhook_event.sender.id;
 
     
