@@ -92,7 +92,7 @@ console.log(body.object);
       let webhook_event = entry.messaging[0];
       console.log('**********');
          console.log(webhook_event);
-         console.log(webhook_event.sender.thread);
+        // console.log(webhook_event.sender.thread);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
@@ -101,7 +101,7 @@ console.log(body.object);
 
      if(webhook_event.thread)  sender_psid =   webhook_event.thread.id;
      else  sender_psid =   webhook_event.sender.id;
-
+      
     
 
         ProcessMessage(sender_psid, message);   
@@ -233,16 +233,32 @@ function ProcessMessage(sender_psid,message)
 function SendMessage(sender_psid, Message) {
   // Construct the message body
    
-  var request_body = JSON.stringify({
-    "messaging_type":"RESPONSE",
-    "recipient": {
-      "id": sender_psid
-    },
-    "message":{
-      "text": Message
-    } 
-  });
-  //console.log(request_body);
+  var request_body = ''
+  if(sender_psid.search('t_') > -1)
+  {
+    JSON.stringify({
+      "messaging_type":"RESPONSE",
+      "thread_key": {
+        "id": sender_psid
+      },
+      "message":{
+        "text": Message
+      } 
+    });
+  }
+  else
+  {
+    JSON.stringify({
+      "messaging_type":"RESPONSE",
+      "recipient": {
+        "id": sender_psid
+      },
+      "message":{
+        "text": Message
+      } 
+    });
+  }
+ 
 
   
 
