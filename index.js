@@ -91,20 +91,20 @@ console.log(body.object);
 
       let webhook_event = entry.messaging[0];
          console.log(webhook_event);
-         console.log(webhook_event['sender']);
-         console.log(webhook_event['recipient']);
-         console.log(webhook_event['message']);
-      let sender_psid =  '100036992748686';//webhook_event.sender.id;
+         console.log(webhook_event.sender);
+         console.log(webhook_event.recipient);
+         console.log(webhook_event.message);
+         var sender_psid =  webhook_event.sender.id;
+      var message = webhook_event.message.id;
 
 
-      if (webhook_event.message) {
+    
+
+        ProcessMessage(sender_psid, message);   
       // console.log(webhook_event);
      //   handleMessage(sender_psid, webhook_event.message);        
-      }
-      else
-      {
+      
    
-      }
 
      // console.log(webhook_event['message']['text']);
     // console.log(webhook_event['sender']['id']);
