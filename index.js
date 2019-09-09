@@ -79,6 +79,7 @@ else  ProcessMessage(sender_psid, message);
 });
 */
 
+let body = req.body;
 console.log(body.object);
 
    
