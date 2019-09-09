@@ -237,7 +237,7 @@ function SendMessage(sender_psid, Message) {
   if(sender_psid.search('t_') > -1)
   {
     console.log('2');
-    JSON.stringify({
+    request_body = JSON.stringify({
       "messaging_type":"RESPONSE",
       "thread_key": {
         "id": sender_psid
@@ -250,7 +250,7 @@ function SendMessage(sender_psid, Message) {
   else
   {
     console.log('3');
-    JSON.stringify({
+    request_body =   JSON.stringify({
       "messaging_type":"RESPONSE",
       "recipient": {
         "id": sender_psid
