@@ -90,17 +90,18 @@ console.log(body.object);
     body.entry.forEach(function(entry) {
 
       let webhook_event = entry.messaging[0];
+      console.log('**********');
          console.log(webhook_event);
-         console.log(webhook_event.sender);
-         console.log(webhook_event.recipient);
-         console.log(webhook_event.message);
-         var sender_psid =  webhook_event.sender.id;
-      var message = webhook_event.message.text;
+        // console.log(webhook_event.sender);
+      //   console.log(webhook_event.recipient);
+      //   console.log(webhook_event.message);
+      //   var sender_psid =  webhook_event.sender.id;
+     // var message = webhook_event.message.text;
 
 
     
 
-        ProcessMessage(sender_psid, message);   
+       // ProcessMessage(sender_psid, message);   
       // console.log(webhook_event);
      //   handleMessage(sender_psid, webhook_event.message);        
       
