@@ -20,7 +20,7 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
  // CallAPI();
- console.log(body);
+
  body.entry.forEach(function(entry) {
 
   //console.log(entry);
@@ -40,7 +40,7 @@ app.post('/webhook', (req, res) => {
     if(botID == recipient.id)
   {
      
-   // console.log(body);
+    console.log(body);
  //   console.log("******");
  //   console.log(entry);
  //   console.log("******");
