@@ -79,6 +79,8 @@ else  ProcessMessage(sender_psid, message);
 });
 */
 
+console.log(body.object);
+
    
   if (body.object === 'page') {
 
