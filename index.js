@@ -13,10 +13,11 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 app.post('/webhook', (req, res) => {  
  
-  var botID = '293281931540823';
+ // var botID = '293281931540823';
   
  // ProcessMessage("s","J TC");
 
+ /*
   let body = req.body;
 
   console.log(body.object);
@@ -76,19 +77,23 @@ else  ProcessMessage(sender_psid, message);
 
 
 });
+*/
 
-
-   /* Backup กรณีที่เป็น Page
+   
   if (body.object === 'page') {
 
     
-  
 
     body.entry.forEach(function(entry) {
 
       let webhook_event = entry.messaging[0];
-       //  console.log(entry);
+         console.log(webhook_event);
+         console.log(webhook_event.sender);
+         console.log(webhook_event.recipient);
+         console.log(webhook_event.message);
       let sender_psid =  '100036992748686';//webhook_event.sender.id;
+
+
       if (webhook_event.message) {
       // console.log(webhook_event);
      //   handleMessage(sender_psid, webhook_event.message);        
@@ -108,7 +113,7 @@ else  ProcessMessage(sender_psid, message);
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
-*/
+
 
 res.status(200).send('EVENT_RECEIVED');
 });
