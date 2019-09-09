@@ -96,22 +96,22 @@ console.log(body.object);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
-         var sender_psid =   '';//webhook_event.sender.id;
-      var message = webhook_event.message.text;
+       
 
-     if(webhook_event.thread)  sender_psid =   webhook_event.thread.id;
-     else  sender_psid =   webhook_event.sender.id;
-      
-    
-
-        ProcessMessage(sender_psid, message);   
-      // console.log(webhook_event);
-     //   handleMessage(sender_psid, webhook_event.message);        
-      
-   
-
-     // console.log(webhook_event['message']['text']);
-    // console.log(webhook_event['sender']['id']);
+     if(webhook_event.thread)
+     {
+     var sender_psid =   webhook_event.thread.id;
+      var splitNameBot = message.split('@OFM - ITOps Bot');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      var splitNameBot = message.split('@OFM - ITOps Bot ');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+     }  
+     else 
+     {
+      sender_psid =   webhook_event.sender.id;
+      message = webhook_event.message.text;
+      ProcessMessage(sender_psid, message); 
+     } 
     });
 
     // Returns a '200 OK' response to all requests
