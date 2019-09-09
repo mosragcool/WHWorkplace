@@ -96,14 +96,15 @@ console.log(body.object);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
-      //   var sender_psid =  webhook_event.sender.id;
-     // var message = webhook_event.message.text;
+         var sender_psid =   '';//webhook_event.sender.id;
+      var message = webhook_event.message.text;
 
-     //if()
+     if(webhook_event.sender.thread != null)  sender_psid =   webhook_event.thread.id;
+     else  sender_psid =   webhook_event.sender.id;
 
     
 
-       // ProcessMessage(sender_psid, message);   
+        ProcessMessage(sender_psid, message);   
       // console.log(webhook_event);
      //   handleMessage(sender_psid, webhook_event.message);        
       
