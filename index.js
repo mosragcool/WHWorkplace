@@ -12,7 +12,70 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 
 
 app.post('/webhook', (req, res) => {  
- 
+ try {
+
+
+  let body = req.body;
+
+
+   
+  if (body.object === 'page') {
+
+    
+
+    body.entry.forEach(function(entry) {
+
+      let webhook_event = entry.messaging[0];
+     // console.log('**********');
+        // console.log(webhook_event);
+        // console.log(webhook_event.sender.thread);
+        // console.log(webhook_event.sender);
+      //   console.log(webhook_event.recipient);
+      //   console.log(webhook_event.message);
+     
+     // console.log(webhook_event);
+     if(webhook_event.thread)
+     {
+       if(webhook_event.message)
+       {
+    
+        var sender_psid =   webhook_event.thread.id;
+    
+     
+        var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
+        if(splitNameBot.length>1)
+        {
+        var Message =  splitNameBot[1];//.replace(/ /g,'')
+        } ProcessMessage(sender_psid, Message); 
+       }
+   
+     
+
+      //var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
+      //if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+  
+     }  
+     else 
+     {
+      sender_psid =   webhook_event.sender.id;
+      
+     var Message = webhook_event.message.text;//.replace(/ /g,'');
+      ProcessMessage(sender_psid, Message); 
+     } 
+    });
+
+    // Returns a '200 OK' response to all requests
+    res.status(200).send('EVENT_RECEIVED');
+  } else {
+    // Returns a '404 Not Found' if event is not from a page subscription
+    res.sendStatus(404);
+  }
+
+   
+ }catch(express)
+ {
+  console.log('Post Web Hook : '+express);
+ }
  // var botID = '293281931540823';
   
  // ProcessMessage("s","J TC");
@@ -79,61 +142,7 @@ else  ProcessMessage(sender_psid, message);
 });
 */
 
-let body = req.body;
-console.log(body.object);
 
-   
-  if (body.object === 'page') {
-
-    
-
-    body.entry.forEach(function(entry) {
-
-      let webhook_event = entry.messaging[0];
-      console.log('**********');
-        // console.log(webhook_event);
-        // console.log(webhook_event.sender.thread);
-        // console.log(webhook_event.sender);
-      //   console.log(webhook_event.recipient);
-      //   console.log(webhook_event.message);
-     
-     // console.log(webhook_event);
-     if(webhook_event.thread)
-     {
-       if(webhook_event.message)
-       {
-        console.log(webhook_event);
-        var sender_psid =   webhook_event.thread.id;
-    
-     
-        var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-        if(splitNameBot.length>1)
-        {
-        var Message =  splitNameBot[1];//.replace(/ /g,'')
-        } ProcessMessage(sender_psid, Message); 
-       }
-   
-     
-
-      //var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
-      //if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-  
-     }  
-     else 
-     {
-      sender_psid =   webhook_event.sender.id;
-      
-     var Message = webhook_event.message.text;//.replace(/ /g,'');
-      ProcessMessage(sender_psid, Message); 
-     } 
-    });
-
-    // Returns a '200 OK' response to all requests
-    res.status(200).send('EVENT_RECEIVED');
-  } else {
-    // Returns a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
-  }
 
 
 //res.status(200).send('EVENT_RECEIVED');
@@ -147,18 +156,18 @@ function ProcessMessage(sender_psid,message)
 {
 
   try{
-    console.log('Start');
-var CountSpace = 0;
+   
+     var CountSpace = 0; 
     for (let index = 0; index < message.length; index++) {
 
          if(message[index] == ' ') CountSpace++;// message =  message.slice(0,0);
          else break;
       
     }
-    console.log(CountSpace);
+    
   if(CountSpace != 0) message = message.slice(CountSpace,message.length);
 
-   console.log(message);
+  
 
 
     var command = message.split(' ');
@@ -252,7 +261,7 @@ var CountSpace = 0;
     
   }catch( express)
   {
-    console.log('Error :'+express);
+    console.log('ProcessMessage :'+express);
   }
 
 
@@ -260,59 +269,66 @@ var CountSpace = 0;
 
 function SendMessage(sender_psid, Message) {
   // Construct the message body
-  
-  var request_body = ''
-  if(sender_psid.search('t_') > -1)
-  {
+  try{
+
+    var request_body = ''
+    if(sender_psid.search('t_') > -1)
+    {
+     
+      request_body = JSON.stringify({
+        "messaging_type":"RESPONSE",
+        "recipient": {
+          "thread_key": sender_psid
+        },
+        "message":{
+          "text": Message
+        } 
+      });
+    }
+    else
+    {
+      
+      request_body =   JSON.stringify({
+        "messaging_type":"RESPONSE",
+        "recipient": {
+          "id": sender_psid
+        },
+        "message":{
+          "text": Message
+        } 
+      });
+    }
    
-    request_body = JSON.stringify({
-      "messaging_type":"RESPONSE",
-      "recipient": {
-        "thread_key": sender_psid
-      },
-      "message":{
-        "text": Message
-      } 
-    });
-  }
-  else
-  {
+  
     
-    request_body =   JSON.stringify({
-      "messaging_type":"RESPONSE",
-      "recipient": {
-        "id": sender_psid
-      },
-      "message":{
-        "text": Message
-      } 
+  
+  var options = {
+    host: "graph.facebook.com",
+    path: "/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn", 
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Lenght": Buffer.byteLength(request_body)
+    }
+  }
+  
+  var https = require('https');
+  
+  
+  var req = https.request(options, function(res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+     // console.log('Complete');
     });
+  })
+  req.write(request_body);
+  req.end();
+
+  }catch(express)
+  {
+    console.log('SendMessage :'+express);
   }
  
-
-  
-
-var options = {
-  host: "graph.facebook.com",
-  path: "/v4.0/me/messages?access_token=DQVJzemlHdVlSRGFjcDhCWVFpcWo2VzE3R3R2M3M3VWQzX1drLWJpcTVqZA19IWVpCaFBYSEVKbW5yeHFMdVMzSnp1QjFobWktcDJYX1M1a3RIeHplWktweEhBczdCaGVkLTVFQ2RFdnp1MzhRMFNLUjRXY29tZA1N1TjNoS3lWT0VCZAU9xVmhVekxPZAmJQUDNMdkdwUFNoeHlKRW1xT2xFVVBrZATRxWTZAtOVNxd0ZAIZAGxFZAS12ekR3SkFLM3VlaDlhRk52cjVn", 
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Content-Lenght": Buffer.byteLength(request_body)
-  }
-}
-
-var https = require('https');
-
-
-var req = https.request(options, function(res) {
-  res.setEncoding('utf8');
-  res.on('data', function (chunk) {
-   // console.log('Complete');
-  });
-})
-req.write(request_body);
-req.end();
 
 /*
   request({
