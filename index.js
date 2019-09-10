@@ -97,10 +97,10 @@ console.log(body.object);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
      
-
+      console.log(webhook_event);
      if(webhook_event.thread)
      {
-      console.log(webhook_event);
+   
      //var sender_psid =   webhook_event.thread.id;
     
      
@@ -111,9 +111,9 @@ console.log(body.object);
      }  
      else 
      {
-      sender_psid =   webhook_event.sender.id;
-      message = webhook_event.message.text;
-      ProcessMessage(sender_psid, message); 
+     // sender_psid =   webhook_event.sender.id;
+    //  message = webhook_event.message.text;
+   //   ProcessMessage(sender_psid, message); 
      } 
     });
 
