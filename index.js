@@ -97,11 +97,12 @@ console.log(body.object);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
      
-      console.log(webhook_event);
+     // console.log(webhook_event);
      if(webhook_event.thread)
      {
        if(webhook_event.message)
        {
+        console.log(webhook_event);
         var sender_psid =   webhook_event.thread.id;
     
      
