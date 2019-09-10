@@ -139,7 +139,7 @@ function ProcessMessage(sender_psid,message)
 
 
     var command = message.split('-');
-    var empty = "ไม่มีคำสั่งดังกล่าว";
+    var empty = "คำถามไม่ถูกตรงตามรูปแบบ ต้องระบุเป็น Ex. Sales- store Store= Code ,Number,Short name";
 
     if(command.length >1)
     {
@@ -178,6 +178,10 @@ function ProcessMessage(sender_psid,message)
         });
         req.write(request_body);
         req.end();
+      }
+      else
+      {
+        SendMessage(sender_psid,empty);
       }
     }
     else
