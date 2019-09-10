@@ -105,9 +105,13 @@ console.log(body.object);
     
      
       var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      if(splitNameBot.length>1)
+      {
+      var Message =  splitNameBot[1].replace(/ /g,'')
+      } ProcessMessage(sender_psid, Message); 
+
+      //var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
+      //if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
   
      }  
      else 
