@@ -90,7 +90,7 @@ console.log(body.object);
     body.entry.forEach(function(entry) {
 
       let webhook_event = entry.messaging[0];
-     // console.log('**********');
+      console.log('**********');
         // console.log(webhook_event);
         // console.log(webhook_event.sender.thread);
         // console.log(webhook_event.sender);
@@ -124,7 +124,7 @@ console.log(body.object);
   }
 
 
-res.status(200).send('EVENT_RECEIVED');
+//res.status(200).send('EVENT_RECEIVED');
 });
 
 
