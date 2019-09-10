@@ -151,12 +151,12 @@ function ProcessMessage(sender_psid,message)
 var CountSpace = 0;
     for (let index = 0; index < message.length; index++) {
 
-         if(message[0] == ' ') CountSpace++;// message =  message.slice(0,0);
+         if(message[i] == ' ') CountSpace++;// message =  message.slice(0,0);
          else break;
       
     }
     console.log(CountSpace);
-  if(CountSpace != 0) message = message.slice(0,CountSpace);
+  if(CountSpace != 0) message = message.slice(CountSpace,message.length);
 
    console.log(message);
 
