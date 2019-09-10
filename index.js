@@ -146,7 +146,7 @@ function ProcessMessage(sender_psid,message)
 
     for (let index = 0; index < message.length; index++) {
 
-         if(message[0] == ' ') message =  message.slice(0);
+         if(message[0] == ' ') message =  message.slice(0,0);
          else break;
       
     }
