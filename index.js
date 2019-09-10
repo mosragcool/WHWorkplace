@@ -89,7 +89,7 @@ console.log(body.object);
 
     body.entry.forEach(function(entry) {
 
-      let webhook_event = entry.messaging[0];
+      let webhook_event = entry.messaging;
      // console.log('**********');
         // console.log(webhook_event);
         // console.log(webhook_event.sender.thread);
