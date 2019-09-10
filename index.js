@@ -146,7 +146,7 @@ function ProcessMessage(sender_psid,message)
 {
 
   try{
-
+    console.log('Start');
 var CountSpace = 0;
     for (let index = 0; index < message.length; index++) {
 
@@ -154,7 +154,7 @@ var CountSpace = 0;
          else break;
       
     }
-
+    console.log(CountSpace);
   if(CountSpace != 0) message = message.slice(0,CountSpace);
 
    console.log(message);
