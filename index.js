@@ -108,7 +108,7 @@ console.log(body.object);
       if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
       var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
       if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-      else   ProcessMessage(sender_psid, message); 
+  
      }  
      else 
      {
