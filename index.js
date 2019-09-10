@@ -101,19 +101,20 @@ console.log(body.object);
      if(webhook_event.thread)
      {
    
-     //var sender_psid =   webhook_event.thread.id;
+     var sender_psid =   webhook_event.thread.id;
     
      
-    //  var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-    //  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-    //  var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
-    //  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
+      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+      else   ProcessMessage(sender_psid, message); 
      }  
      else 
      {
-     // sender_psid =   webhook_event.sender.id;
-    //  message = webhook_event.message.text;
-   //   ProcessMessage(sender_psid, message); 
+      sender_psid =   webhook_event.sender.id;
+      message = webhook_event.message.text;
+      ProcessMessage(sender_psid, message); 
      } 
     });
 
