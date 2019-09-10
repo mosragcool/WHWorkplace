@@ -143,13 +143,14 @@ function ProcessMessage(sender_psid,message)
 
   try{
 
+
     for (let index = 0; index < message.length; index++) {
 
          if(message[0] == ' ') message[0] = '';
          else break;
       
     }
-   
+   console.log(message);
 
 
     var command = message.split(' ');
