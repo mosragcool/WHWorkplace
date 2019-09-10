@@ -96,17 +96,18 @@ console.log(body.object);
         // console.log(webhook_event.sender);
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
-      console.log(webhook_event);
+     
 
      if(webhook_event.thread)
      {
-     var sender_psid =   webhook_event.thread.id;
+      console.log(webhook_event);
+     //var sender_psid =   webhook_event.thread.id;
     
      
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
-      if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+    //  var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
+    //  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
+    //  var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
+    //  if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
      }  
      else 
      {
