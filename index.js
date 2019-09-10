@@ -107,7 +107,7 @@ console.log(body.object);
       var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
       if(splitNameBot.length>1)
       {
-      var Message =  splitNameBot[1].replace(/ /g,'')
+      var Message =  splitNameBot[1];//.replace(/ /g,'')
       } ProcessMessage(sender_psid, Message); 
 
       //var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
@@ -117,8 +117,9 @@ console.log(body.object);
      else 
      {
       sender_psid =   webhook_event.sender.id;
-      message = webhook_event.message.text;
-      ProcessMessage(sender_psid, message); 
+      
+     var Message = webhook_event.message.text;//.replace(/ /g,'');
+      ProcessMessage(sender_psid, Message); 
      } 
     });
 
@@ -145,8 +146,8 @@ function ProcessMessage(sender_psid,message)
    
 
 
-    var command = message.split('-');
-    var empty = "คำถามไม่ถูกตรงตามรูปแบบ ต้องระบุเป็น Ex. Sales- store Store= Code ,Number,Short name";
+    var command = message.split(' ');
+    var empty = "คำถามไม่ถูกตรงตามรูปแบบ ต้องระบุเป็น Ex. Sales store, Store= Code ,Number,Short name";
 
     if(command.length >1)
     {
