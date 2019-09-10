@@ -100,15 +100,19 @@ console.log(body.object);
       console.log(webhook_event);
      if(webhook_event.thread)
      {
-   
-     var sender_psid =   webhook_event.thread.id;
+       if(webhook_event.message.text)
+       {
+        var sender_psid =   webhook_event.thread.id;
     
      
-      var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
-      if(splitNameBot.length>1)
-      {
-      var Message =  splitNameBot[1];//.replace(/ /g,'')
-      } ProcessMessage(sender_psid, Message); 
+        var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot');
+        if(splitNameBot.length>1)
+        {
+        var Message =  splitNameBot[1];//.replace(/ /g,'')
+        } ProcessMessage(sender_psid, Message); 
+       }
+   
+     
 
       //var splitNameBot = webhook_event.message.text.split('@OFM - ITOps Bot ');
       //if(splitNameBot.length>1) ProcessMessage(sender_psid, splitNameBot[1]); 
