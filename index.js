@@ -14,7 +14,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  try {
 
-  console.log('ทดสอบ');
+
   let body = req.body;
 
   console.log(body.object);
@@ -35,7 +35,9 @@ app.post('/webhook', (req, res) => {
       //   console.log(webhook_event.message);
      
       console.log(webhook_event);
-     if(webhook_event.thread)
+       if(webhook_event.message)
+      {
+        if(webhook_event.thread)
      {
        if(webhook_event.message)
        {
@@ -58,11 +60,18 @@ app.post('/webhook', (req, res) => {
      }  
      else 
      {
-      sender_psid =   webhook_event.sender.id;
+if(webhook_event.message.text)
+{
+  
+  sender_psid =   webhook_event.sender.id;
       
-     var Message = webhook_event.message.text;//.replace(/ /g,'');
-      ProcessMessage(sender_psid, Message); 
-     } 
+  var Message = webhook_event.message.text;//.replace(/ /g,'');
+   ProcessMessage(sender_psid, Message); 
+  } 
+}
+      }
+
+     
     });
 
     // Returns a '200 OK' response to all requests
