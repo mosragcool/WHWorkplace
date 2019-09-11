@@ -14,7 +14,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {  
  try {
 
-
+  console.log('ทดสอบ');
   let body = req.body;
 
   console.log(body.object);
@@ -212,6 +212,7 @@ function ProcessMessage(sender_psid,message)
         req.write(request_body);
         req.end();
       }
+    
       else
       {
         SendMessage(sender_psid,empty);
