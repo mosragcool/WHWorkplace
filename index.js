@@ -18,6 +18,7 @@ app.post('/webhook', (req, res) => {
   let body = req.body;
 
   console.log(body.object);
+
    
   if (body.object === 'page') {
 
@@ -33,7 +34,7 @@ app.post('/webhook', (req, res) => {
       //   console.log(webhook_event.recipient);
       //   console.log(webhook_event.message);
      
-     // console.log(webhook_event);
+      console.log(webhook_event);
      if(webhook_event.thread)
      {
        if(webhook_event.message)
