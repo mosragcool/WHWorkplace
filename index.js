@@ -14,7 +14,7 @@ app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
 app.post('/webhook', (req, res) => {
     try {
 
-
+      console.log('เริ่ม');
         let body = req.body;
 
         console.log(body.object);
